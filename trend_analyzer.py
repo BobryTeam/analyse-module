@@ -6,7 +6,7 @@ from threading import Thread
 from redis import Redis
 
 from events import *
-from metrics import Metrics
+from metrics import Metrics, MetricsFromStr
 from trend_data import TrendData
 from microservice import Microservice
 

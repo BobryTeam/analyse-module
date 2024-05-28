@@ -76,9 +76,6 @@ class TrendAnalyzer(Microservice):
         '''
         metrics_count: int = len(metrics)
 
-        for metric in metrics:
-            print(str(metric))
- 
         cpu_load: float = 0.0
         ram_load: float = 0.0
         net_in_load: float = 0.0

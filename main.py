@@ -1,12 +1,14 @@
+import os
+from queue import Queue
+
 from redis import Redis
-from prometheus_api_client import PrometheusConnect
 
 from trend_analyzer import TrendAnalyzer
 
-from events.kafka_event import *
-from events.event import *
+from events import *
 
-import os
+from kafka import KafkaConsumer, KafkaProducer
+
 
 # put the values in a k8s manifest
 kafka_bootstrap_server: str | None = os.environ.get('KAFKA_BOOTSTRAP_SERVER')

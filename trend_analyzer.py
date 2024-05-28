@@ -5,13 +5,10 @@ from threading import Thread
 
 from redis import Redis
 
-from events.event import *
-from events.kafka_event import *
-
-from trend_data.trend_data import TrendData
-from metrics.metrics import Metrics
-
-from microservice.microservice import Microservice
+from events import *
+from metrics import Metrics
+from trend_data import TrendData
+from microservice import Microservice
 
 
 class TrendAnalyzer(Microservice):
@@ -79,7 +76,6 @@ class TrendAnalyzer(Microservice):
         '''
         metrics_count: int = len(metrics)
 
-        print(f'analysing metrics: {metrics}')
         for metric in metrics:
             print(str(metric))
  

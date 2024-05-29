@@ -5,8 +5,8 @@ from redis import Redis
 
 from trend_analyzer import TrendAnalyzer
 
-from events import *
-
+from event import *
+from kafka_event import *
 from kafka import KafkaConsumer, KafkaProducer
 
 

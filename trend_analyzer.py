@@ -9,6 +9,8 @@ from events import *
 from metrics import Metrics, MetricsFromStr
 from trend_data import TrendData
 from microservice import Microservice
+from trend_analyzer_model import TrendAnalyzerModel
+
 
 
 class TrendAnalyzer(Microservice):
@@ -74,18 +76,19 @@ class TrendAnalyzer(Microservice):
         '''
         Строим тренд
         '''
+        # model = TrendAnalyzerModel(metrics)
+        # return TrendData(*model.analyze(metrics))
+
         metrics_count: int = len(metrics)
 
         cpu_load: float = 0.0
         ram_load: float = 0.0
-        net_in_load: float = 0.0
-        net_out_load: float = 0.0
+        net_load: float = 0.0
 
         for metric in metrics:
             cpu_load += metric.cpu_load / metrics_count
             ram_load += metric.ram_load / metrics_count
-            net_in_load += metric.net_in_load / metrics_count
-            net_out_load += metric.net_out_load / metrics_count
+            net_load += metric.net_load / metrics_count
 
-        return TrendData(cpu_load, ram_load, net_in_load, net_out_load)
+        return TrendData(cpu_load, ram_load, net_load)
 

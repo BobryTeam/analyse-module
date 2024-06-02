@@ -76,19 +76,5 @@ class TrendAnalyzer(Microservice):
         '''
         Строим тренд
         '''
-        # model = TrendAnalyzerModel(metrics)
-        # return TrendData(*model.analyze(metrics))
-
-        metrics_count: int = len(metrics)
-
-        cpu_load: float = 0.0
-        ram_load: float = 0.0
-        net_load: float = 0.0
-
-        for metric in metrics:
-            cpu_load += metric.cpu_load / metrics_count
-            ram_load += metric.ram_load / metrics_count
-            net_load += metric.net_load / metrics_count
-
-        return TrendData(cpu_load, ram_load, net_load)
-
+        model = TrendAnalyzerModel(metrics)
+        return TrendData(*model.analyze(metrics))
